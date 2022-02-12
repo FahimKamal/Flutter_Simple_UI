@@ -21,49 +21,51 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       backgroundColor: bgColor,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const CustomAppBar(),
-          const SizedBox(
-            height: 25,
-          ),
-          const Heading(text: "Discover a New Path"),
-          const SizedBox(
-            height: 25,
-          ),
-          SearchBar(),
-          const SizedBox(
-            height: 50,
-          ),
-          const Heading(text: "For You"),
-          const SizedBox(
-            height: 25,
-          ),
-          Container(
-            height: 160,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: jobsForYou.length,
-                itemBuilder: (context, index) {
-                  return JobCard(
-                      companyName: jobsForYou[index].companyName,
-                      jobTitle: jobsForYou[index].jobTitle,
-                      logoImagePath: jobsForYou[index].logoImagePath,
-                      hourlyRate: jobsForYou[index].hourlyRate);
-                }),
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          const Heading(text: "Recently Added"),
-          // const SizedBox(
-          //   height: 25,
-          // ),
-          Expanded(
-            child: Padding(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const CustomAppBar(),
+            const SizedBox(
+              height: 25,
+            ),
+            const Heading(text: "Discover a New Path"),
+            const SizedBox(
+              height: 25,
+            ),
+            const SearchBar(),
+            const SizedBox(
+              height: 50,
+            ),
+            const Heading(text: "For You"),
+            const SizedBox(
+              height: 25,
+            ),
+            Container(
+              height: 160,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: jobsForYou.length,
+                  itemBuilder: (context, index) {
+                    return JobCard(
+                        companyName: jobsForYou[index].companyName,
+                        jobTitle: jobsForYou[index].jobTitle,
+                        logoImagePath: jobsForYou[index].logoImagePath,
+                        hourlyRate: jobsForYou[index].hourlyRate);
+                  }),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            const Heading(text: "Recently Added"),
+            // const SizedBox(
+            //   height: 25,
+            // ),
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: ListView.builder(
+                shrinkWrap: true,
+                physics: const ScrollPhysics(),
                 itemCount: recentJobs.length,
                 itemBuilder: (context, index) {
                   return RecentJobCard(
@@ -75,8 +77,8 @@ class _HomePageState extends State<HomePage> {
                 }
               ),
             )
-          )
-        ],
+          ],
+        ),
       ),
       drawer: DrawerWidget(),
     );
