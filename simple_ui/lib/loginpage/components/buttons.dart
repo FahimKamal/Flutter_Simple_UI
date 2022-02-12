@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_ui/homepage/homepage.dart';
 import 'package:simple_ui/models/static_data.dart';
 
 class SignInButton extends StatelessWidget {
@@ -11,7 +12,9 @@ class SignInButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
       child: InkWell(
-        onTap: (){},
+        onTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) { return const HomePage(); }));
+        },
         child: Container(
             decoration: BoxDecoration(
                 boxShadow: [
@@ -48,7 +51,9 @@ class SignUpButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) { return const HomePage(); }));
+      },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(defaultPadding / 2),
         child: Container(

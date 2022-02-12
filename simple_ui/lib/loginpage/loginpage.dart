@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_ui/homepage/homepage.dart';
 import 'package:simple_ui/models/static_data.dart';
 
 import 'components/divider_with_text.dart';
@@ -48,7 +49,9 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 const Text("Not a member?"),
                 TextButton(
-                    onPressed: (){},
+                    onPressed: (){
+
+                    },
                     child: const Text("Register now",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     )
